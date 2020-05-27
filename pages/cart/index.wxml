@@ -1,5 +1,15 @@
 <view class="revice_address_row">
-    <view class="address_btn">
+    <!-- 当收获地址存在的时候 -->
+    <view class="address_btn" wx:if="{{!address.userName}}">
         <button type="primary" plain bindtap="handlerAddress">获取收获地址</button>
+    </view>
+
+    <!-- 当收获地址不存在的时候 -->
+    <view wx:else class="user_info_row">
+        <view class="user_info">
+            <view>{{address.userName}}</view>
+            <view>{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</view>
+        </view>
+        <view class="user_phone">{{address.telNumber}}</view>
     </view>
 </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address:{}
   },
 
   /**
@@ -14,13 +14,22 @@ Page({
   onLoad: function (options) {
 
   },
-  handlerAddress(){
+
+  onShow(){
+    let address = wx.getStorageSync('address');
+    this.setData({
+        address
+    })
+  },
+
+handlerAddress(){
    wx.getSetting({
        success: (result)=>{
            const scopeAddress = result.authSetting['scope.address'];
            if(scopeAddress===true||scopeAddress===undefined){
                wx.chooseAddress({
                    success: (result1)=>{
+                    wx.setStorageSync('address', result1);
                    }
                });
            }else{
@@ -28,6 +37,7 @@ Page({
                    success: (result2)=>{
                        wx.chooseAddress({
                            success: (result3)=>{
+                               wx.setStorageSync('address', result3);
                            }
                        });
                    }
