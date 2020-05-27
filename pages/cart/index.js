@@ -14,26 +14,27 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  handlerAddress(){
+   wx.getSetting({
+       success: (result)=>{
+           const scopeAddress = result.authSetting['scope.address'];
+           if(scopeAddress===true||scopeAddress===undefined){
+               wx.chooseAddress({
+                   success: (result1)=>{
+                   }
+               });
+           }else{
+               wx.openSetting({
+                   success: (result2)=>{
+                       wx.chooseAddress({
+                           success: (result3)=>{
+                           }
+                       });
+                   }
+               });
+           }
+       }
+   });
   },
 
   /**

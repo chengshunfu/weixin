@@ -5,3 +5,32 @@
 .index-swiper swiper image {
   width: 100%;
 }
+.index_cate {
+  display: flex;
+}
+.index_cate navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.index_cate navigator image {
+  width: 100%;
+}
+.inex_floor {
+  overflow: hidden;
+}
+.inex_floor .floor_group .floor_title {
+  padding: 10rpx 0;
+  width: 100%;
+}
+.inex_floor .floor_group .floor_list navigator {
+  float: left;
+  width: 33.33%;
+  padding: 6rpx 6rpx;
+}
+.inex_floor .floor_group .floor_list navigator:nth-last-child(-n+4) {
+  height: 27.72711207vw;
+}
+.inex_floor .floor_group .floor_list navigator image {
+  width: 100%;
+  height: 100%;
+}
